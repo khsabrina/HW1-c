@@ -15,9 +15,10 @@ int Reverse(int num,int reverse){
         reverse = reverse*10 + num%10;
         Reverse(num/10,reverse);
     }
-    else{
-        return reverse;
-    }
+    
+      return reverse;
+    
+
 }
 int isPalindrome(int num){
     int reverse_num = Reverse(num,0);
@@ -33,9 +34,8 @@ int isArmstrongRec2(int num,int digits,int sum){
         sum = sum + pow(num%10,digits);
         isArmstrongRec2(num/10,digits,sum);
     }
-    else{
     return sum;
-    }
+   
 }
 int isArmstrong(int num){
     if(isArmstrongRec2(num,NumberOfDigits(num),0)==num){

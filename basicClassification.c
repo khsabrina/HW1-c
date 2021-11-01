@@ -22,6 +22,9 @@ int isStrong(int num){
     int check = num;
     while (num > 0){
         int digit = num%ten;
+        if(digit==0){
+            factorial=1;
+        }
         for(int i = 1; i<=digit; ++i){
             factorial = factorial *i;
         } 
@@ -31,4 +34,8 @@ int isStrong(int num){
 
         
     }
+    if(check == sum){
+        return 1;
+    }
+    return 0;
 }

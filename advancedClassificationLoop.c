@@ -3,6 +3,7 @@
 #include "NumClass.h"
 #include <math.h>
 
+
 int NumberOfDigits(int num){
     int count =0;
     while ( num > 0){
@@ -28,7 +29,6 @@ int isArmstrong(int num){
  
 }
 int isPalindrome(int num){
-    int if_pali = 0;
     int last_digit=0;
     int reverse_number=0;
     int num_copy=num;
