@@ -1,0 +1,38 @@
+
+
+all: loops recurcives loopd recursived mains maindloop maindrec
+
+loops: loopreg.o
+	ar -rcs libclassloop.a loopreg.o
+recurcives:
+	ar -rcs libclassrec.a looprec.o	
+
+recursived: looprec.o
+	gcc -shared -o libclassrec.so looprec.o
+
+loopd: loopreg.o
+	gcc -shared -o libclassloops.so loopreg.o
+
+mains: main.o recurcives
+	gcc -Wall -g -o mains main.o libclassrec.a	
+
+maindloop: main.o loopd
+	gcc -Wall -g -o maindloop main.o ./libclassloops.so
+
+maindrec:
+	gcc -Wall -g -o maindrec main.o ./libclassrec.so
+
+main.o: main.c NumClass.h
+	gcc -Wall -g -c main.c
+
+loopreg.o: basicClassification.c dvancedClassificationLoop.c NumClass.h
+	gcc -Wall -g -c basicClassification.c advancedClassificationLoop.c NumClass.h -o loopreg.o
+looprec.o: basicClassification.c NumClass.h advancedClassificationRecursion.c
+	gcc -Wall -g -c basicClassification.c advancedClassificationRecursion.c NumClass.h -o looprec.o
+
+.PHONY: clean all
+
+clean:
+	rm -f *.o *.a *.so maindloop mains maindrec: 
+
+
