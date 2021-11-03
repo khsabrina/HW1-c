@@ -6,11 +6,11 @@ libclassloop.a: basicClassification.o advancedClassificationLoop.o NumClass.h
 
 recurcives: libclassrec.a
 libclassrec.a: basicClassification.o advancedClassificationRecursion.o NumClass.h
-	ar -rcs libclassrec.a basicClassification.o advancedClassificationRecursion.o
+	ar -rcs libclassrec.a basicClassification.o advancedClassificationLoop.o
 
 recursived: libclassrec.so
 libclassrec.so: basicClassification.o advancedClassificationRecursion.o NumClass.h
-	gcc -shared -o libclassrec.so basicClassification.o advancedClassificationLoop.o -lm
+	gcc -shared -o libclassrec.so basicClassification.o advancedClassificationRecursion.o -lm
 
 loopd: libclassloops.so
 libclassloops.so: basicClassification.o advancedClassificationLoop.o NumClass.h
