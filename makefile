@@ -1,6 +1,4 @@
-
-
-all: loops recurcives loopd recursived mains maindloop maindrec
+all: loops recurcives loopd recursived mains maindloop maindrec mainsloop
 
 loops: libclassloop.a
 libclassloop.a: basicClassification.o advancedClassificationLoop.o NumClass.h
@@ -48,6 +46,6 @@ advancedClassificationRecursion.o: advancedClassificationRecursion.c NumClass.h
 .PHONY: clean all
 
 clean:
-	rm -f *.o *.a *.so maindloop mains maindrec : 
+	rm -f *.o *.a *.so maindloop mains maindrec mainsloop: 
 
 
